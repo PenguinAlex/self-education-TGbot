@@ -1,0 +1,78 @@
+{
+  "carrier": {
+    "books": [
+      {
+        "name": "your name here",
+        "description": "your description here"
+      },
+      {
+        "name": "your name here",
+        "description": "your description here"
+      },
+      {
+        "name": "your name here",
+        "description": "your description here"
+      },
+      {
+        "name": "your name here",
+        "description": "your description here"
+      },
+      {
+        "name": "your name here",
+        "description": "your description here"
+      },
+      {
+        "name": "your name here",
+        "description": "your description here"
+      }
+    ],
+    "movies": [
+      {
+        "name": "your name here",
+        "description": "your description here"
+      },
+      {
+        "name": "your name here",
+        "description": "your description here"
+      },
+      {
+        "name": "your name here",
+        "description": "your description here"
+      }
+    ]
+  },
+  "relationships": {
+    "books": [],
+    "movies": []
+  },
+  "money": {
+    "books": [],
+    "movies": []
+  },
+  "personal-growth": {
+    "books": [],
+    "movies": []
+  },
+  "family": {
+    "books": [],
+    "movies": []
+  },
+  "hobby": {
+    "books": [],
+    "movies": []
+  },
+  "traveling": {
+    "books": [],
+    "movies": []
+  },
+  "friends": {
+    "books": [],
+    "movies": []
+  },
+  "health": {
+    "books": [],
+    "movies": []
+  }
+}
+
+
