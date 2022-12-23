@@ -20,6 +20,7 @@ bot.on('message', (msg) => {
 bot.on('callback_query', (data) => {
         const {data: payload, message: {chat: {id: chatID}, message_id}} = data;
         if (payload === 'back') {
+            bot.deleteMessage(chatID, message_id)
             bot.sendMessage(chatID, "Выберите направление:", {
                 reply_markup: {
                     inline_keyboard: directionsKeyboard,
@@ -35,6 +36,7 @@ bot.on('callback_query', (data) => {
                 const directionName = payload.split("/")[0];
                 const choose = payload.split("/")[1];
                 const responseString = mapDirectionToText(directionsData[directionName], choose);
+                console.log(responseString)
                 bot.sendMessage(chatID, responseString, {
                     parse_mode: "MarkdownV2",
                     reply_markup: {
@@ -80,16 +82,18 @@ function mapDirectionToText(data, type) {
     switch (type) {
         case "movies":
             resultString = "*_Фильмы_*" + movies.map(({name, description}) => {
-                return `\n  *${name}*\n     _${description}_`
+
+                return `\n  *${name.replace(/[-.*+?^${}()|[\]\\]/g, '\\$&')}*\n     _${description.replace(/[-.*+?^${}()|[\]\\]/g, '\\$&')}_`
             }).join();
             break
         case "books":
             resultString = "*_Книги_*" + books.map(({name, description}) => {
-                return `\n  *${name}*\n     _${description}_`
+                return `\n  *${name.replace(/[-.*+?^${}()|[\]\\]/g, '\\$&')}*\n     _${description.replace(/[-.*+?^${}()|[\]\\]/g, '\\$&')}_`
             }).join();
             break;
         default:
             resultString = "Подумай ещё раз"
+            break;
     }
 
     return resultString;
